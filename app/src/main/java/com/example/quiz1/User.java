@@ -1,17 +1,15 @@
 package com.example.quiz1;
 
-import android.content.SharedPreferences;
-
 public class User {
 
     private String name;
     private String identification;
     private int finalNote;
-    SharedPreferences preferences;
 
-    public User(String name,String identification){
+    public User(String name,String identification,int finalNote){
         this.name = name;
         this.identification = identification;
+        this.finalNote = finalNote;
     }
 
     public String getName() {

@@ -15,7 +15,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText name;
     private EditText identification;
     private Button continuar;
-    private ArrayList<User> users;
+
+    private String identificationString,nameString;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +27,18 @@ public class RegisterActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         identification = findViewById(R.id.identification);
         continuar = findViewById(R.id.terminar);
-        users = new ArrayList<>();
 
         continuar.setOnClickListener(
                 (v) -> {
                     if(name.getText().toString().equals("") && identification.getText().toString().equals("")){
                         Toast.makeText(this,"Porfavor dijite un nombre o identificación",Toast.LENGTH_LONG).show();
                     } else {
-                        users.add(new User(name.getText().toString(),identification.getText().toString()));
+
                         Intent i = new Intent(this,EpidemiologicalLink.class);
+                        nameString = name.getText().toString();
+                        identificationString = identification.getText().toString();
+                        i.putExtra("name",nameString);
+                        i.putExtra("identification",identificationString);
                         startActivity(i);
                         finish();
 
