@@ -53,7 +53,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <Button
-            android:id="@+id/continue"
+            android:id="@+id/terminar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -67,8 +67,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="372dp"
-            android:layout_height="436dp"
-            app:layout_constraintBottom_toTopOf="@+id/continue"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/terminar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,11 +76,10 @@
 
             <CheckBox
                 android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text=" Estuve en contacto con alguien que tiene coronavirus "
+                android:text="Estuve en contacto con alguien que tiene coronavirus"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,9 +87,10 @@
                 android:id="@+id/checkBox2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:text="Hice un viaje internacional en los últimos 3 meses"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.137"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
@@ -98,7 +98,7 @@
                 android:id="@+id/checkBox3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:text="Hice un viaje internacional en los últimos 3 meses"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +118,7 @@
                 android:id="@+id/checkBox5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:text="Ninguna de las anteriores"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

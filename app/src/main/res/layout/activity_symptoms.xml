@@ -40,12 +40,12 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <Button
-            android:id="@+id/continue"
+            android:id="@+id/terminar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@android:color/holo_red_light"
-            android:text="Continuar"
+            android:text="Terminar"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -55,84 +55,83 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="370dp"
             android:layout_height="370dp"
-            app:layout_constraintBottom_toTopOf="@+id/continue"
+            app:layout_constraintBottom_toTopOf="@id/terminar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/listParticipans">
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/checkBoxFiebre"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:text="Fiebre "
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxRespirar" />
 
             <CheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/checkBoxGarganta"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="Dolor de Garganta"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxFiebre" />
 
             <CheckBox
-                android:id="@+id/checkBox3"
+                android:id="@+id/checkBoxNasal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="Congestión nasal"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxGarganta" />
 
             <CheckBox
-                android:id="@+id/checkBox4"
+                android:id="@+id/checkBoxTos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Tos"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxNasal" />
 
             <CheckBox
-                android:id="@+id/checkBox5"
+                android:id="@+id/checkBoxFatiga"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="Fátiga"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxTos" />
 
             <CheckBox
-                android:id="@+id/checkBox6"
+                android:id="@+id/checkBoxNinguno"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Dificultad para respirar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
-
-            <CheckBox
-                android:id="@+id/checkBox7"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:text="Ninguno"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxFatiga" />
+
+            <CheckBox
+                android:id="@+id/checkBoxRespirar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Dificultad para respirar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
