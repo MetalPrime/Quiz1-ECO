@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Symptoms extends AppCompatActivity {
@@ -47,31 +48,35 @@ public class Symptoms extends AppCompatActivity {
 
         identificationString = getIntent().getStringExtra("identification");
         nameString = getIntent().getStringExtra("name");
-        noteString = Integer.parseInt(getIntent().getStringExtra("note"));
+        noteString = Integer.parseInt((getIntent().getStringExtra("note")));
+        Log.e("Actual NOota",noteString+"");
 
-        preferences = getSharedPreferences("Peferences",MODE_PRIVATE);
+        preferences = getSharedPreferences("Preferences",MODE_PRIVATE);
 
-        users = new ArrayList<String>();
+        users = new ArrayList<>();
 
         final Set<String> set = preferences.getStringSet("ListUsers",null);
 
         if (set == null){
-            users = new ArrayList<String>();
+            users = new ArrayList<>();
         } else {
-            users = new ArrayList<String>(set);
+            users = new ArrayList<>(set);
         }
 
         new Thread(
                 () -> {
                     while (true){
-                        if (ninguno.isChecked()){
-                            respirar.setChecked(false);
-                            fiebre.setChecked(false);
-                            garganta.setChecked(false);
-                            nasal.setChecked(false);
-                            tos.setChecked(false);
-                            fatiga.setChecked(false);
-                        }
+                                    if (ninguno.isChecked()){
+                                        respirar.setChecked(false);
+                                        fiebre.setChecked(false);
+                                        garganta.setChecked(false);
+                                        nasal.setChecked(false);
+                                        tos.setChecked(false);
+                                        fatiga.setChecked(false);
+                                    }
+
+
+
                     }
                 }
 
@@ -109,13 +114,19 @@ public class Symptoms extends AppCompatActivity {
 
 
 
-                                                    Log.e("status", noteString + "");
+                                                    Set<String>set1 = new HashSet<>();
 
-                                                    users.add(identificationString + "" + nameString + " " + noteString);
+                                                    users.add(nameString+" "+identificationString + " " + noteString+ "\n");
 
-                                                   // users.add();
-                                                    set.addAll(users);
-                                                    preferences.edit().putStringSet("following", set).commit();
+                                                    Log.e("status", users.get(0));
+                                                    /* users.add(); */
+
+                                                    assert set1 != null;
+
+                                                        set1.addAll(users);
+                                                        preferences.edit().putStringSet("ListUsers", set1).apply();
+
+                                                        Log.e("Actual Shared",preferences.getStringSet("ListUsers",null).toString());
 
                                                     isOk = false;
                                                     finish();
@@ -145,7 +156,7 @@ public class Symptoms extends AppCompatActivity {
                         );
 
                         try {
-                            Thread.sleep(2000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

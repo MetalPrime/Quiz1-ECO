@@ -78,10 +78,11 @@ public class EpidemiologicalLink extends AppCompatActivity {
                                                     }
 
                                                     Intent i = new Intent(this, Symptoms.class);
-                                                    startActivity(i);
+
                                                     i.putExtra("name", nameString);
                                                     i.putExtra("identification", identificationString);
-                                                    i.putExtra("note", currentNote);
+                                                    i.putExtra("note", currentNote+"");
+                                                    startActivity(i);
                                                     Log.e("status", currentNote + "");
                                                     finish();
                                                     isOk = false;
@@ -107,7 +108,7 @@ public class EpidemiologicalLink extends AppCompatActivity {
                         );
 
                         try {
-                            Thread.sleep(2000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -28,19 +30,25 @@ public class RegisterActivity extends AppCompatActivity {
         identification = findViewById(R.id.identification);
         continuar = findViewById(R.id.terminar);
 
+
         continuar.setOnClickListener(
                 (v) -> {
                     if(name.getText().toString().equals("") && identification.getText().toString().equals("")){
                         Toast.makeText(this,"Porfavor dijite un nombre o identificación",Toast.LENGTH_LONG).show();
                     } else {
+                        if(Objects.requireNonNull(getSharedPreferences("Preferences", MODE_PRIVATE).getStringSet("ListUsers", new HashSet<>())).toString().contains(name.getText().toString())
+                        || Objects.requireNonNull(getSharedPreferences("Preferences", MODE_PRIVATE).getStringSet("ListUsers", new HashSet<>())).toString().contains(identification.getText().toString())){
+                            Toast.makeText(this,"Usuario o identificación ya registrados",Toast.LENGTH_LONG).show();
+                        } else{
+                            Intent i = new Intent(this,EpidemiologicalLink.class);
+                            nameString = name.getText().toString();
+                            identificationString = identification.getText().toString();
+                            i.putExtra("name",nameString);
+                            i.putExtra("identification",identificationString);
+                            startActivity(i);
+                            finish();
+                        }
 
-                        Intent i = new Intent(this,EpidemiologicalLink.class);
-                        nameString = name.getText().toString();
-                        identificationString = identification.getText().toString();
-                        i.putExtra("name",nameString);
-                        i.putExtra("identification",identificationString);
-                        startActivity(i);
-                        finish();
 
                     }
                 }
